@@ -7,6 +7,7 @@ import os
 from collections import defaultdict
 
 load_dotenv()
+
 api = P2P(
     testnet=False,
     api_key=os.getenv("BYBIT_API_KEY"),
