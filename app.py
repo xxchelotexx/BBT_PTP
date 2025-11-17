@@ -117,4 +117,6 @@ def index():
 if __name__ == '__main__':
     # Ejecuta el servidor Flask
     # Debug=True reinicia el servidor automáticamente al guardar cambios
+    port = int(os.environ.get('PORT', 5000)) 
+    app.run(host='0.0.0.0', port=port)
     app.run(debug=True)
