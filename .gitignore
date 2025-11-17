@@ -1,0 +1,10 @@
+# Ignorar el archivo de claves
+.env
+
+# Ignorar archivos de Python compilados
+__pycache__/
+*.pyc
+
+# Ignorar configuraciones locales de IDE
+.vscode/
+.idea/
