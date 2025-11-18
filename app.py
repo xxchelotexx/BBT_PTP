@@ -18,13 +18,13 @@ app = Flask(__name__)
 
 def obtener_datos_p2p():
     """Ejecuta la lógica de tu script y devuelve una cadena HTML con los resultados."""
-    output_html = "<h1>📈 Reporte P2P Bybit (USDT/BOB)</h1>"
+    output_html = "<h1>📈 Reporte P2P Bybit (USDT/BOB)</h1><p style=font-size: 10px; color: #666;>By: Chelotex</p>"
     estados = [1, 0]  # 1: Ventas (Buy Side), 0: Compras (Sell Side)
 
     for estado in estados:
         items = []
         # Solo se recorre hasta la página 2 (rango 1, 3) como en tu código original
-        for page in range(1, 10): 
+        for page in range(1, 4): 
             try:
                 response = api.get_online_ads(
                     tokenId="USDT",
@@ -58,23 +58,23 @@ def obtener_datos_p2p():
 
         # --- Visualización ---
         if estado == 0:
-            titulo = "🔴 Compras (Ofertas de Venta)"
+            titulo = "🔴 Ofertas de Venta"
             color = "red"
             reverse_sort = True
         else:
-            titulo = "🟢 Ventas (Ofertas de Compra)"
+            titulo = "🟢 Ofertas de Compra"
             color = "green"
             reverse_sort = False
         
         output_html += f"<h2>{titulo}</h2>"
-        output_html += f"<p>Volumen total: <strong>{vol_total:.4f} USDT</strong></p>"
+        output_html += f"<p style=font-size: 30px>Volumen: <strong>{vol_total:.4f} USDT</strong></p>"
         output_html += "<table border='1' style='width: 100%; border-collapse: collapse;'>"
-        output_html += f"<tr style='background-color: #f2f2f2; font-weight: bold;'><td>Precio ({color})</td><td>👤 Anuncios</td><td>💰 Volumen</td><td>Distribución</td></tr>"
+        output_html += f"<tr style='background-color: #f2f2f2; font-weight: bold;'><td>Precio</td><td>👤 Anuncios</td><td>💰 Volumen</td><td>Distribución</td></tr>"
 
         datos_ordenados = sorted(agrupado.items(), key=lambda x: x[0], reverse=reverse_sort)
         
         for precio, valores in datos_ordenados:
-            modulo = int((valores['suma'] / vol_total) * 50) if vol_total > 0 else 0
+            modulo = int((valores['suma'] / vol_total) * 30) if vol_total > 0 else 0
             barra = "⬛" * modulo
             
             output_html += f"<tr>"
