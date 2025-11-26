@@ -67,7 +67,7 @@ def obtener_datos_p2p():
             reverse_sort = False
         
         output_html += f"<h2>{titulo}</h2>"
-        output_html += f"<p style=font-size: 30px>Volumen: <strong>{vol_total:.4f} USDT</strong></p>"
+        output_html += f"<p style=font-size: 30px>Volumen: <strong>{vol_total:,.0f} USDT</strong></p>"
         output_html += "<table border='1' style='width: 100%; border-collapse: collapse;'>"
         output_html += f"<tr style='background-color: #f2f2f2; font-weight: bold;'><td>Precio</td><td>👤 Anuncios</td><td>💰 Volumen</td><td>Distribución</td></tr>"
 
@@ -78,9 +78,9 @@ def obtener_datos_p2p():
             barra = "⬛" * modulo
             
             output_html += f"<tr>"
-            output_html += f"<td style='color: {color};'>{precio:.2f}</td>"
+            output_html += f"<td style='color: {color};'>{precio:,.2f}</td>"
             output_html += f"<td>{valores['conteo']}</td>"
-            output_html += f"<td>{valores['suma']:.4f}</td>"
+            output_html += f"<td>{valores['suma']:,.0f}</td>"
             output_html += f"<td>{barra}</td>"
             output_html += f"</tr>"
 
