@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 def obtener_datos_p2p():
     """Ejecuta la lógica de tu script y devuelve una cadena HTML con los resultados."""
-    output_html = "<h1>📈 Reporte P2P Bybit (USDT/BOB)</h1><p style=font-size: 10px; color: #666;>By: Chelotex</p>"
+    output_html = "<h1>📈 BYBIT (USDT/BOB)</h1><p style=font-size: 10px; color: #666;>By: Chelotex</p>"
     estados = [1, 0]  # 1: Ventas (Buy Side), 0: Compras (Sell Side)
 
     for estado in estados:
